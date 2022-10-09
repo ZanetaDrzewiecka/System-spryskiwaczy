@@ -24,6 +24,7 @@ Algorytm: generujemy ciąg arytmetyczny, na przedziale $R \in(4; 8,5)$, gdzie ka
 W ten sposób otrzymamy zapisane do listy optymalne długości promieni zapisaną do zmiennej $lista r$. 
 
 Następnie generujemy współrzędne ułożenia zraszaczy. Aby to zrobić generujemy ciąg arytmetyczny należący do przedziału $i \in(0, b)$, gdzie każdy kolejny elemenent jest większy o promień R. Co drugi element z ciągu przypisujemy do zmiennej $parzyste$ i łączymy z ciągiem arytmetycznym z przedziału $j \in(0, a)$, gdzie każdy kolejny element jest większy o 2 x R, w ten sposób otrzymujemy rezultat (Figure 2): 
+
 ![image](https://user-images.githubusercontent.com/105323115/194773193-f0f1779f-666d-4bf1-a5a4-a4c5ad79e8c0.png)
 
 Gdy do elementów, które nie należą do zmiennej $parzyste$ dołączymy elementy ciągu arytmetycznego z przedziału $k \in(R, a)$, gdzie każdy kolejny element jest większy o 2 x R i dołączymy to do (Figure 2), otrzymamy (Figure 3):
