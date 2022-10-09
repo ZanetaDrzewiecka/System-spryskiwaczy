@@ -17,13 +17,13 @@ Celem jest zrealizowanie wyznaczonych wymagań (1-5) oraz przedstawienie w spos�
 ## Pakowanie na planie kwadratu
 Dla regularnych obszarów należy podać długość boku $a$ i $b$ i dla tych wartości wyliczamy optymalne promienie. Sprawdzamy, który z boków jest dłuższy, tak aby jak najwięcej całych lub połówek (z zał. 2) zraszaczy znajdowała się w wyznaczonym obszarze. 
 
-Algorytm: generujemy ciąg arytmetyczny, na przedziale $R \in(4; 8,5)$, gdzie każdy kolejny element jest większy o $0.1$. Każdy element tego ciągu wstawiamy do następującej formuły: a/2*i w sytuacji gdzie bok b jest dłuższy, lub analogicznie b/2*i (Figure 1), gdzie $i$ oznacza element ciągu. W ten sposób otrzymujemy ile okręgów zmieści się na zadanym boku. Wyniki zapisujemy do listy, a następnie wybieramy tylko tą liczbę okręgów gdzie reszta z dzieleniajest równa 0.5 lub 1, tak aby doprowadzić do sytuacji, gdzie w obszarze znajdują się tylko całe lub połówki zraszaczy. w sytuacji gdzie bok $b$ jest dłuższy, lub analogicznie b/2
+Algorytm: generujemy ciąg arytmetyczny, na przedziale $R \in(4; 8,5)$, gdzie każdy kolejny element jest większy o $0.1$. Każdy element tego ciągu wstawiamy do następującej formuły: a/(2 x i) w sytuacji gdzie bok b jest dłuższy, lub analogicznie b/(2 x i) (Figure 1), gdzie $i$ oznacza element ciągu. W ten sposób otrzymujemy ile okręgów zmieści się na zadanym boku. Wyniki zapisujemy do listy, a następnie wybieramy tylko tą liczbę okręgów gdzie reszta z dzieleniajest równa 0.5 lub 1, tak aby doprowadzić do sytuacji, gdzie w obszarze znajdują się tylko całe lub połówki zraszaczy. w sytuacji gdzie bok $b$ jest dłuższy, lub analogicznie b/2
 
 ![image](https://user-images.githubusercontent.com/105323115/194773053-973253dd-993d-425a-9500-ad3a8a899ed5.png)
 
 W ten sposób otrzymamy zapisane do listy optymalne długości promieni zapisaną do zmiennej $lista r$. 
 
-Następnie generujemy współrzędne ułożenia zraszaczy. Aby to zrobić generujemy ciąg arytmetyczny należący do przedziału $i \in(0, b)$, gdzie każdy kolejny elemenent jest większy o promień R. Co drugi element z ciągu przypisujemy do zmiennej $parzyste$ i łączymy z ciągiem arytmetycznym z przedziału $j \in(0, a)$, gdzie każdy kolejny element jest większy o 2*R, w ten sposób otrzymujemy rezultat (Figure 2): 
+Następnie generujemy współrzędne ułożenia zraszaczy. Aby to zrobić generujemy ciąg arytmetyczny należący do przedziału $i \in(0, b)$, gdzie każdy kolejny elemenent jest większy o promień R. Co drugi element z ciągu przypisujemy do zmiennej $parzyste$ i łączymy z ciągiem arytmetycznym z przedziału $j \in(0, a)$, gdzie każdy kolejny element jest większy o 2 x R, w ten sposób otrzymujemy rezultat (Figure 2): 
 ![image](https://user-images.githubusercontent.com/105323115/194773193-f0f1779f-666d-4bf1-a5a4-a4c5ad79e8c0.png)
 
 Gdy do elementów, które nie należą do zmiennej $parzyste$ dołączymy elementy ciągu arytmetycznego z przedziału $k \in(R, a)$, gdzie każdy kolejny element jest większy o 2 x R i dołączymy to do (Figure 2), otrzymamy (Figure 3):
@@ -93,7 +93,9 @@ Po uruchomieniu kodu, w środowisku RStudio, w części "Plots" uruchamia się z
 
 ![image](https://user-images.githubusercontent.com/105323115/194774918-e8e812a9-bfb0-4f51-b012-44b5e77589b9.png)
 
+Na podstawie współrzędnych zapisanych do listy $pkt_mapa$ wyliczamy $zero x$, $zero y$, $a$ oraz $b$, które będą współrzędnymi prostokąta do którego zapakujemy powstały nieregularny wielokąt. Sprawdzamy i wybieramy z listy $lista$ tylko te okręgi, których środki należą do powstałego wielokątu, w ten sposób otrzymujemy (Figure 15):
 
+![image](https://user-images.githubusercontent.com/105323115/194774987-f8b278c2-bc3d-4032-951f-6b168664f532.png)
 
 
 
