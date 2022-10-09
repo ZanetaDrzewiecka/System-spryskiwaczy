@@ -63,6 +63,39 @@ Do punktów wybranych do zmiennej $parzyste mniejsze$ dołączamy elementy ciagu
 
 ![image](https://user-images.githubusercontent.com/105323115/194774515-1090888e-0852-4614-88e1-19afcdfffc65.png)
 
+## Dopełnienie obszarów niezalanych
+Możemy zauważyć, że przy prawej krawędzi znajdują się obszary niezalane lub okręgi wychodzą poza obszar, co mogłoby powodować np. zalewanie budynku klienta. Widać to na rysunku (Figure 10).
+
+![image](https://user-images.githubusercontent.com/105323115/194774584-0efebdf0-0d52-447b-b61a-4c95d749414b.png)
+
+Dlatego należy policzyć długość "1 RZĘDU" i "2 RZĘDU", a otrzymane wartości porównać z długością boku $a$. Jeśli otrzymana wartość będzie większa, to usuwamy ostatni okrąg z rzędu, a przeciwnym razie zostawiamy bez zmian. 
+Wyliczenie długości rzędu 1: możemy zauważyć, że posiada tylko całe okręgi, dlatego z listy $lista$ wyciągamy ilość okręgów z rzędu i mnożymy razy 2 x R. 
+Wyliczenie długości rzędu 2: zauważamy, że zawsze zaczyna się od połówki okręgu, dlatego od ilości okręgów odejmujemy jeden, wynik mnożymy razy 2 x R i dodajemy R. Po usunięciu otrzymamy takie rozmieszczenie (Figure 11):
+
+![image](https://user-images.githubusercontent.com/105323115/194774685-cb7a8248-1e63-48c5-8a6e-3c27bb03f134.png)
+
+Następnie z listy $lista$ wyciągamy współrzędne ostatniego okręgu z rzędu i do współrzędnej $x$ z jego środka dodajemy wartość R. Otrzymaną wartość odejmujemy od długości boku $a$ i zapisujemy do listy $lista t$. Na rysunku (Figure 12) kolorem fioletowym zaznaczone jest graficznie odległości zapisane do $lista t$
+
+![image](https://user-images.githubusercontent.com/105323115/194774736-4364965f-92bb-44a2-9ebe-ac8a1506136e.png)
+
+Sprawdzamy czy promień R jest większy niż wartości $t$, pochodząca z listy $lista t$, jeśli tak, to dzielimy na dwa przypadki, gdy:
+   1. wartość $t$ jest mniejsza niż R/2, wtedy promień figury dopełniającej obszar będzie wynosić wartość t + R
+   2. w przeciwnym przypadku promień okręgu dopełniającego wynosi $t$.
+Jeśli wartość $t$ jest większa niż promień R to wtedy promień figury dopełniającej będzie wynosił t/2.
+Obszar po dodaniu figur dopełniających (Figure 13):
+
+![image](https://user-images.githubusercontent.com/105323115/194774785-ec1acfbb-cc9a-474a-ad34-6c3320cd7d33.png)
+
+## Dodawanie zdjęcia działki
+Należy zrobić zdjęcie działki z geoportalu, które będzie miało widoczną skalę. Nastepnie przypisać do zmiennej $skala$ skalę jaka widnieje na zdjęciu działki, podać ścieżkę do pliku, w którym znajduje się zdjęcie i przypisać do zmiennej $fpath$. 
+
+Po uruchomieniu kodu, w środowisku RStudio, w części "Plots" uruchamia się zdjęcie do którego podaliśmy ścieżkę. Pierwsze, co robimy to zaznaczamy dwoma kliknięciami skalę, która widnieje na zdjęciu, następnie możemy oklikać wierzchołki działki która nas interesuje. Funkcja p2p() oblicza długość odcinka odpowiadającego za skalę, wykorzystując wzór: √((X_b - X_a)^2 + (Y_b - Y_a)^2), następnie otrzymany wynik dzielimy przez zmienną $skala$, w ten sposób przeliczamy wartości pikselowe na metry. Przypisujemy to do zmiennej $jM$. Do zmiennej $pkt_mapa$ zapisujemy współrzędne oklikanej figury. Jednak przypisane współrzędne wymagają korekty, ponieważ są odwrócone o 180° oraz odbite lustrzane. Po wykonaniu tych dwóch czynności nasze współrzędne oddają kształt i położenie działki (Figure 14). 
+
+![image](https://user-images.githubusercontent.com/105323115/194774918-e8e812a9-bfb0-4f51-b012-44b5e77589b9.png)
+
+
+
+
 
 
 
